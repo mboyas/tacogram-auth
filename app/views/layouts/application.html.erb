@@ -21,23 +21,24 @@
           <% if @current_user %>
           <%= @current_user.first_name %>
           <%= button_to "Logout", "/sessions/logout", method: :delete %>
+            <div class="row">
+            <div class="col">
+            <h1 class="display-6 mb-4">Tacostagram</h1>
+            </div>
+            <div class="col-2 text-end">
+            <a href="/posts/new/" class="btn btn-success">New Post</a>
+            </div>
+            </div>
           <% else %>
           <a href="/sessions/new">Login</a> | <a href="/users/new">Signup</a>
+          <a href="/posts/new/" class="btn btn-success">New Post</a>
           <% end %>
           </p>
-        <a href="/sessions/new" class="btn btn-default">Login</a> |
-        <a href="/users/new" class="btn btn-default">Sign Up</a>
+      
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-        <h1 class="display-6 mb-4">Tacostagram</h1>
-      </div>
-      <div class="col-2 text-end">
-        <a href="/posts/new/" class="btn btn-success">New Post</a>
-      </div>
-    </div>
+   
 
     <%= yield %>
   </div>
