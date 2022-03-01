@@ -1,8 +1,27 @@
+<% if @current_user %>
+  <%= form_with model: @task do |form| %>
+    <%= form.text_field "body" %>
+    <%= form.text_field "image" %>
+    <%= form.submit "Add new post" %>
+  <% end %>
+<% end %>
+
+
 <div class="row">
   <% for post in @posts %>
     <div class="col-3">
       <h4>
         <!-- TODO: display the name of the user that created the post -->
+        <table>
+  <% for post in @posts %>
+      <p>
+        <%= post %>
+      </p>
+      <td>
+        <%= button_to "Complete", post, method: :delete %>
+      </td>
+  <% end %>
+</table>
       </h4>
       <img class="img-fluid" src="<%= post.image %>" class="w-full">
       <p><%= post.body %></p>
